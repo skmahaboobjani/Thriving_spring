@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>task</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  
+  <style>
+    body{
+      background-color: antiquewhite;
+    }
+    #report {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    .report-card {
+      width: 200px;
+      padding: 15px;
+      margin: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      background-color: #f2f2f2;
+    }
+
+    
+    .report-card h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .report-card span {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    table.is-bordered th,
+    table.is-bordered td {
+      border: 2px solid black;
+      font-weight: bold;
+      text-align: center;
+    }
+    h2{
+      font-weight: bold;
+      
+    }
+   
+    @media only screen and (max-width: 768px) {
+  #report {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .report-card {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+    
+   
+
+   
+  </style>
+</head>
+
+<body>
+   
+  <span style="color: black; position: relative; left: 20px; top: 20px;">Report</span>
+  <span style="color: black; position: relative; left: 20px; top:20px">User progress</span>
+ 
+   
+  
+  <div id="report" class="columns is-multiline">
+   
+    
+   
+    <div>
+        
+      <div class="report-card" id="totalEnvironmentsCard">
+        <img src="https://cdn-icons-png.flaticon.com/128/4230/4230869.png" height="50px" width="50px"/><br/>
+        <span id="totalEnvironments">1.1k</span>
+        <h2>Total Environments</h2>
+       
+      </div>
+      
+    </div>
+    <div>
+      <div class="report-card" id="yetToStartCard">
+        <img src="https://cdn-icons-png.flaticon.com/128/771/771444.png" height="50px" width="50px"/><br/>
+        <span id="yetToStart">15</span>
+        <h2>Yet to Start</h2>
+       
+      </div>
+    </div>
+    <div>
+      <div class="report-card" id="inProgressCard">
+        <img src="https://cdn-icons-png.flaticon.com/128/10509/10509541.png" height="50px" width="50px"/><br/>
+        <span id="inProgress">50</span>
+        <h2>In Progress</h2>
+        
+      </div>
+    </div>
+    <div>
+      <div class="report-card" id="completedCard">
+        <img src="https://cdn-icons-png.flaticon.com/128/6784/6784655.png" height="50px" width="50px"/><br/>
+        <span id="completed">108</span>
+        <h2>Completed</h2>
+       
+      </div>
+    </div>
+    <div>
+      <div class="report-card" id="averageProgressCard">
+        <img src="https://image.shutterstock.com/image-vector/round-convenient-icon-like-easy-260nw-2178023117.jpg" height="50px" width="50px"/><br/>
+        <span id="averageProgress">75%</span>
+        <h2>Average Progress</h2>
+        
+      </div>
+    </div>
+    <div>
+      <div class="report-card" id="averageSpendCard">
+        <img src="https://cdn-icons-png.flaticon.com/128/1584/1584942.png" height="50px" width="50px"/><br/>
+        <span id="averageSpend">0h 42 min</span>
+        <h2>Average Spend</h2>
+       
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <div class="card-content">
+        <div class="columns">
+          <div class="column is-half">
+            <span  style="color: black; font-weight: bold;">Departments</span>
+            <div class="select"  style="position: relative; left: 80px; ">
+              
+              <select style="color: black;" id="departmentDropdown">
+                <option>Bar Chart</option>
+                <option>Department A</option>
+                <option>Department B</option>
+                <option>Department C</option>
+                <option>Department D</option>
+                <option>Department E</option>
+                <option>Department F</option>
+                <option>Department G</option>
+              </select>
+            </div>
+            <table  class="table is-bordered" id="departmentTable">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Completion Percentage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Department A</td>
+                  <td>50%</td>
+                </tr>
+                <tr>
+                  <td>Department B</td>
+                  <td>57%</td>
+                </tr>
+                <tr>
+                  <td>Department C</td>
+                  <td>83%</td>
+                </tr>
+                <tr>
+                  <td>Department D</td>
+                  <td>78%</td>
+                </tr>
+                <tr>
+                  <td>Department E</td>
+                  <td>92%</td>
+                </tr>
+                <tr>
+                  <td>Department F</td>
+                  <td>23%</td>
+                </tr>
+                <tr>
+                  <td>Department G</td>
+                  <td>43%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="column is-half">
+            <div style="position: relative; left: 400px; top: 30px;" class="select">
+              <select id="percentageDropdown">
+                <option>Percentage</option>
+                <option>0-50%</option>
+                <option>51-75%</option>
+                <option>76-100%</option>
+              </select>
+            </div>
+            <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script src="script.js"></script>
+  
+</body>
+
+</html>
